@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#101627">
+  <meta name="description" content="Nikolaos Doschoris — software developer and indie game creator. Explore Vengeance: The Norian Chronicles, Words and Sand, Vengeance: Origins, and Starnection in a pixel-art portfolio adventure.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NickDosc — A Developer's Adventure">
+  <meta property="og:description" content="Four game worlds. One developer. Explore a pixel-art RPG portfolio by Nikolaos Doschoris.">
+  <meta property="og:url" content="https://nickdosc.dev/">
+  <meta property="og:image" content="https://nickdosc.dev/assets/social-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://nickdosc.dev/">
+  <title>NickDosc — A Developer's Adventure</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#101627;--night:#0c1020;--navy:#18213c;--navy2:#242e4c;--mist:#b4c2d2;--white:#f9f4da;--gold:#f8cf77;--rose:#f48795;--jade:#76d6b1;--blue:#8ab8ee;--outline:#070a15;--focus:#f8cf77}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;background:var(--night);color:var(--white);font-family:'VT323','Courier New',monospace;font-size:23px;line-height:1.19;overflow-x:hidden}
+    ::selection{background:var(--gold);color:var(--night)}a{color:inherit}a:focus-visible,button:focus-visible{outline:3px dashed var(--focus);outline-offset:5px}button{font:inherit;cursor:pointer}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip{position:absolute;z-index:99;top:-70px;left:16px;background:var(--gold);color:#121a27;padding:12px}.skip:focus{top:10px}
+    .pixel{font-family:'Press Start 2P',monospace;letter-spacing:.01em;line-height:1.65}body:before{content:'';position:fixed;inset:0;pointer-events:none;z-index:20;opacity:.07;background:repeating-linear-gradient(0deg,transparent 0 3px,#06090e 4px 5px)}
+    .stars{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(#fff5d0 1px,transparent 1.5px),radial-gradient(#8caef5 1.5px,transparent 2px),radial-gradient(#f7d185 1px,transparent 2px);background-size:73px 77px,149px 163px,263px 199px;background-position:13px 9px,51px 70px,104px 31px;opacity:.7}
+    .shell{max-width:1150px;margin:0 auto;padding:0 26px}header{position:sticky;top:0;z-index:15;background:#0d1426ed;border-bottom:4px solid #36445e;backdrop-filter:blur(7px)}.header-inner{display:flex;gap:18px;align-items:center;justify-content:space-between;min-height:74px}.mark{display:flex;gap:12px;align-items:center;text-decoration:none;font-family:'Press Start 2P',monospace;font-size:13px}.gem{width:23px;height:23px;background:var(--gold);box-shadow:inset -6px -6px 0 #b97952,0 0 0 3px #fff1ba;transform:rotate(45deg);margin:3px 9px 3px 4px}.nav{display:flex;gap:22px;align-items:center}.nav a{font-size:20px;text-decoration:none;color:#cbd6e5}.nav a:hover{color:var(--gold)}.nav .hire{background:var(--gold);color:#22253b;border:3px solid #fff0bf;box-shadow:4px 4px 0 #3f4152;padding:4px 10px}.nav .hire:hover{color:#0b1225;background:#ffdfa0}.menu-toggle{display:none;border:2px solid var(--gold);background:var(--navy);color:var(--white);padding:7px 12px}
+    .hero{position:relative;overflow:hidden;min-height:635px;background:linear-gradient(180deg,#131a32 0%,#253151 59%,#4c4962 100%);border-bottom:7px solid #0a0e1c}.hero-content{position:relative;z-index:4;display:flex;align-items:center;min-height:635px;padding:86px 0 110px;gap:55px}.hero-copy{flex:1.3}.eyebrow{color:var(--jade);font-size:11px;margin:0 0 25px;letter-spacing:.11em}.hero h1{font-family:'Press Start 2P',monospace;text-shadow:5px 5px 0 #252a46,7px 7px 0 #0d1225;letter-spacing:-1px;font-size:clamp(25px,3.6vw,49px);line-height:1.65;margin:0}.hero h1 span{display:block;color:var(--gold)}.sub{color:#dbe5ec;font-size:clamp(24px,2.6vw,32px);max-width:480px;margin:18px 0 28px}.actions{display:flex;gap:14px;flex-wrap:wrap}.rpg-button{position:relative;border:4px solid #161a2c;box-shadow:4px 4px 0 #090b18;background:var(--gold);color:#182037;text-decoration:none;font:11px/1.7 'Press Start 2P',monospace;padding:15px 18px;display:inline-block;transition:transform .12s,box-shadow .12s}.rpg-button:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 #090b18}.rpg-button.secondary{background:#27375b;color:var(--white);border-color:#7888b4}.hero-footnote{margin-top:24px;color:#b6c9d9;font-size:20px}.hero-footnote span{color:var(--jade)}
+    .scene{flex:1;position:relative;min-width:300px;height:370px;image-rendering:pixelated}.scene .sun{position:absolute;top:12px;right:65px;width:75px;height:75px;background:#f6e6bc;box-shadow:0 0 0 13px #f6e6bc1e,0 0 0 30px #f6e6bc0c}.mountain{position:absolute;bottom:85px;width:0;height:0;border-left:150px solid transparent;border-right:150px solid transparent;border-bottom:245px solid #37435e}.mountain.m1{left:0;filter:brightness(.8)}.mountain.m2{left:105px;bottom:63px;border-bottom-color:#293751;transform:scale(.84)}.scene .ground{position:absolute;bottom:0;inset-inline:0;height:104px;background:linear-gradient(#587b71 0 14px,#3a645b 14px 27px,#304b4f 27px 100%);border-top:8px solid #8ebc93}.castle{position:absolute;bottom:91px;left:95px;width:188px;height:148px;background:#a9a5a0;border:8px solid #343f53;box-shadow:inset 9px 0 0 #c5bba6,inset -9px 0 0 #7a7982}.castle:before,.castle:after{content:'';position:absolute;bottom:108px;width:51px;height:105px;background:linear-gradient(#a7b3b6 0 18px,#6e7b8b 18px 100%);border:7px solid #343f53}.castle:before{left:-29px}.castle:after{right:-29px}.castle .door{position:absolute;bottom:-8px;left:59px;width:51px;height:80px;background:#29334c;border:8px solid #ddd0a7;border-bottom:none;border-radius:25px 25px 0 0}.castle .window{position:absolute;top:25px;width:16px;height:30px;background:#f4d185;box-shadow:0 0 0 5px #404b59}.castle .window.w1{left:24px}.castle .window.w2{right:24px}.tree{position:absolute;bottom:91px;width:14px;height:60px;background:#775e5a}.tree:after{content:'';position:absolute;bottom:23px;left:-33px;border-left:40px solid transparent;border-right:40px solid transparent;border-bottom:100px solid #317067}.tree.t1{left:9px}.tree.t2{right:3px;transform:scale(.8);transform-origin:bottom}
+    .spark{position:absolute;width:8px;height:8px;background:#ffebac;box-shadow:0 0 0 5px #ffebac28;animation:twinkle 2.7s ease-in-out infinite alternate}.sp1{top:17px;left:50px}.sp2{top:91px;right:1px;animation-delay:1s}.sp3{top:181px;left:12px;animation-delay:1.5s}@keyframes twinkle{to{opacity:.2;transform:scale(.6)}}
+    main{background:linear-gradient(180deg,#11182c,#0b1121 75%)}section{padding:78px 0}section:target .section-title{color:var(--gold)}.topline{color:var(--jade);font-size:10px;text-align:center;margin:0 0 11px}.section-title{font-family:'Press Start 2P',monospace;font-size:clamp(19px,2.4vw,30px);line-height:1.6;text-align:center;margin:0 0 13px}.intro{color:var(--mist);text-align:center;font-size:25px;max-width:680px;margin:0 auto 34px}.pixel-panel{background:#1d2842;border:5px solid #596988;box-shadow:0 0 0 5px #0c1223,8px 8px 0 #050911;position:relative}.pixel-panel:before{content:'';position:absolute;pointer-events:none;inset:6px;border:1px dashed #8998b43b}
+    .map{position:relative;height:380px;overflow:hidden;background:linear-gradient(#527767 0 16%,#64866d 16% 21%,#577e66 21% 100%);border:7px solid #38475c;box-shadow:7px 7px 0 #070c16}.map:before{content:'';position:absolute;inset:0;opacity:.48;background:repeating-linear-gradient(0deg,transparent 0 26px,#293c4d 26px 28px),repeating-linear-gradient(90deg,transparent 0 26px,#293c4d 26px 28px)}.map:after{content:'';position:absolute;left:12%;top:-55px;height:500px;width:27%;background:#4b88a2;transform:rotate(35deg);box-shadow:0 0 0 8px #87b3a3;opacity:.92}.path{position:absolute;z-index:1;inset:28px 15% 20px 30%;border:9px dashed #d3b780;border-radius:46%;transform:rotate(-15deg)}.map-node{position:absolute;z-index:3;display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;text-decoration:none;transform:translate(-50%,-50%);filter:drop-shadow(3px 4px 0 #152b32);transition:transform .15s}.map-node:hover{transform:translate(-50%,-54%)}.map-node .emoji{display:grid;place-items:center;width:75px;height:75px;background:#213451;border:5px solid #f8db96;box-shadow:4px 4px 0 #1b2638;font-size:39px;line-height:1}.map-node strong{background:#111d31ed;border:2px solid #d5d0a4;padding:5px 10px;font:9px/1.5 'Press Start 2P',monospace;white-space:nowrap}.map-node.n1{left:26%;top:25%}.map-node.n2{left:70%;top:23%}.map-node.n3{left:43%;top:77%}.map-node.n4{left:82%;top:75%}
+    .worlds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:25px}.world{overflow:hidden;min-width:0;transition:transform .15s}.world:hover{transform:translateY(-4px)}.world-top{height:175px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}.world-top .world-symbol{font-size:83px;filter:drop-shadow(6px 8px 0 #091021)}.world-top .mini-stars{position:absolute;inset:0;opacity:.35;background-image:radial-gradient(#fff 2px,transparent 2px);background-size:29px 39px}.fire{background:linear-gradient(165deg,#5d294b,#171e38)}.sand{background:linear-gradient(165deg,#b87650,#43384a)}.origins{background:linear-gradient(165deg,#405c69,#17263f)}.sky{background:linear-gradient(165deg,#242d68,#101735)}.world-body{padding:24px 25px 26px}.world-meta{color:var(--jade);font:10px/1.6 'Press Start 2P',monospace}.world h3{font:16px/1.65 'Press Start 2P',monospace;margin:12px 0;color:#ffdf99}.world p{font-size:24px;color:#d0d9e4;margin:8px 0 18px}.chips{display:flex;flex-wrap:wrap;gap:8px}.chips span{border:2px solid #71809b;background:#26334f;padding:4px 8px;font-size:18px;color:#d3e5ed}
+    .profile-grid{display:grid;grid-template-columns:280px 1fr;gap:28px;align-items:stretch}.avatar-panel{padding:25px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}.avatar{width:180px;height:180px;position:relative;background:linear-gradient(#273c59 0 70%,#36566b 70%);border:5px solid #7288a3;overflow:hidden;margin-bottom:20px}.avatar .face{position:absolute;left:59px;top:51px;background:#e9b28e;width:64px;height:74px;box-shadow:inset 0 -14px 0 #cc906e}.avatar .hair{position:absolute;z-index:2;left:49px;top:39px;background:#382d38;width:84px;height:29px;box-shadow:13px 13px 0 -6px #382d38,-10px 12px 0 -7px #382d38}.avatar .eyes{position:absolute;z-index:3;left:70px;top:87px;background:#232838;width:8px;height:8px;box-shadow:30px 0 0 #232838}.avatar .shirt{position:absolute;left:30px;bottom:-16px;width:125px;height:75px;background:#648dae;border:8px solid #36516c}.profile-info{padding:26px 30px}.label{font:9px/1.8 'Press Start 2P',monospace;color:var(--jade)}.profile-info h3{font:17px/1.5 'Press Start 2P',monospace;color:var(--gold);margin:9px 0}.profile-info p{margin:10px 0;color:#d5deeb;font-size:24px}.facts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}.fact{border:2px solid #4f6283;background:#111d32;padding:10px 13px}.fact small{display:block;font-size:18px;color:#9eafc6}.fact strong{font-weight:normal;color:#fce1aa;font-size:24px}.tech{margin:24px 0 0}.tech span{display:inline-block;font-size:19px;margin:4px 5px 4px 0;border:2px solid #71809b;padding:5px 8px;background:#111d32}
+    .log{max-width:850px;margin:0 auto;padding:28px 34px}.quest{padding:16px 6px 17px;border-bottom:2px dashed #596a85;display:flex;gap:20px;align-items:flex-start}.quest:last-child{border-bottom:0}.quest-icon{font-size:33px;flex:0 0 40px}.quest h3{font:12px/1.7 'Press Start 2P',monospace;color:var(--gold);margin:0 0 7px}.quest p{margin:0;color:#d7dfe9;font-size:24px}.quest small{display:block;color:#8fd9bf;font-size:19px;margin-top:4px}
+    .contact{padding-bottom:105px}.contact-panel{text-align:center;max-width:800px;margin:auto;padding:33px}.contact-panel p{color:#cedaea;font-size:25px;margin:15px auto 25px;max-width:550px}.contact-note{color:#acc0d2;font-size:18px;margin-top:22px}footer{border-top:4px solid #34425d;background:#0c1223;padding:23px 0;text-align:center;color:#9eaec4;font-size:20px}footer span{color:var(--gold)}
+    .toast{position:fixed;bottom:22px;left:50%;z-index:30;transform:translate(-50%,200%);transition:transform .25s;background:#263650;border:4px solid var(--gold);box-shadow:6px 6px 0 #030713;color:#fff3c4;padding:13px 18px;font:10px/1.6 'Press Start 2P',monospace;max-width:min(94vw,560px);text-align:center}.toast.show{transform:translate(-50%,0)}
+    .date-line{color:var(--jade)!important;font:10px/1.6 "Press Start 2P",monospace;margin:3px 0 9px!important}.contact-links{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:center}.contact-links .rpg-button{font-size:9px;padding:12px}    .map-node .emoji img{width:54px;height:54px;display:block;image-rendering:pixelated}.world-top .world-symbol img{width:118px;height:118px;image-rendering:pixelated;filter:drop-shadow(5px 6px 0 #0b1225)}.quest-icon{font:13px/1.5 'Press Start 2P',monospace;color:var(--jade);padding-top:5px}
+    @media(max-width:900px){.hero-content{gap:12px}.scene{min-width:240px;transform:scale(.82);transform-origin:center}.hero h1{font-size:28px}.nav{gap:13px}.nav a{font-size:18px}}
+    @media(max-width:720px){.shell{padding-inline:17px}.header-inner{min-height:70px}.menu-toggle{display:block}.nav{display:none;position:absolute;top:70px;left:0;right:0;flex-direction:column;align-items:stretch;background:#131c31;border-bottom:4px solid #61718c;padding:18px 23px;gap:0}.nav.open{display:flex}.nav a{padding:13px 10px;border-bottom:1px solid #3e4c66}.hero-content{flex-direction:column;padding:70px 0 65px;min-height:0;gap:2px;text-align:center}.hero-copy{width:100%}.hero h1{font-size:clamp(21px,6.3vw,31px)}.eyebrow{font-size:9px}.sub{margin:16px auto 25px}.actions{justify-content:center}.scene{min-width:300px;width:300px;height:280px;transform:scale(.73);margin:-19px auto -50px}.hero{min-height:0}.map{height:405px}.map-node .emoji{width:60px;height:60px;font-size:31px}.map-node strong{font-size:7px;padding:5px}.map-node.n1{left:29%;top:21%}.map-node.n2{left:75%;top:24%}.map-node.n3{left:32%;top:75%}.map-node.n4{left:78%;top:74%}.worlds{grid-template-columns:1fr}.profile-grid{grid-template-columns:1fr}.avatar-panel{padding:20px}.facts{grid-template-columns:1fr 1fr}section{padding:61px 0}.world-top{height:145px}}
+    @media(max-width:395px){.rpg-button{font-size:9px;padding:13px}.actions{gap:10px}.facts{grid-template-columns:1fr}.profile-info{padding:22px}.log{padding:20px}.quest{gap:9px}.quest-icon{flex-basis:29px}.quest h3{font-size:10px}.map-node strong{font-size:6px}.mark{font-size:11px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<header>
+  <div class="shell header-inner">
+    <a class="mark" href="#top" aria-label="NickDosc home"><span class="gem" aria-hidden="true"></span>NICKDOSC<span style="color:var(--jade)">.DEV</span></a>
+    <button class="menu-toggle pixel" type="button" aria-controls="site-nav" aria-expanded="false">MENU +</button>
+    <nav class="nav" id="site-nav" aria-label="Main navigation">
+      <a href="#map">World Map</a><a href="#games">Games</a><a href="#profile">Profile</a><a href="#experience">Experience</a><a href="#quests">Quest Log</a><a class="hire" href="#contact">Contact ↗</a>
+    </nav>
+  </div>
+</header>
+<div id="top" class="hero">
+  <div class="stars" aria-hidden="true"></div>
+  <div class="shell hero-content">
+    <div class="hero-copy">
+      <p class="eyebrow pixel">★ WELCOME, TRAVELER ★</p>
+      <h1>NIKOLAOS <span>DOSCHORIS</span></h1>
+      <p class="sub">Full-stack developer. Game creator. Building reliable software and memorable worlds.</p>
+      <div class="actions">
+        <a class="rpg-button" href="#map" id="start-quest">▶ START ADVENTURE</a>
+        <a class="rpg-button secondary" href="Nikolaos_Doschoris_Public_CV.pdf" download>▤ DOWNLOAD CV</a>
+      </div>
+      <div class="hero-footnote"><span>●</span> STATUS: BUILDING WORLDS &nbsp; | &nbsp; OSLO, NORWAY</div>
+    </div>
+    <div class="scene" role="img" aria-label="Pixel-art fantasy castle under a starry sky">
+      <div class="sun"></div><div class="mountain m1"></div><div class="mountain m2"></div>
+      <div class="castle"><div class="door"></div><div class="window w1"></div><div class="window w2"></div></div>
+      <div class="ground"></div><div class="tree t1"></div><div class="tree t2"></div>
+      <div class="spark sp1"></div><div class="spark sp2"></div><div class="spark sp3"></div>
+    </div>
+  </div>
+</div>
+<main id="main">
+<section id="map" aria-labelledby="map-title">
+  <div class="shell"><p class="topline pixel">CHAPTER 01 / SELECT YOUR DESTINATION</p><h2 id="map-title" class="section-title">THE WORLD MAP</h2><p class="intro">Four worlds await. Choose a destination to learn about the games I've built and the adventures still in progress.</p>
+    <div class="map" aria-label="Interactive project map"><div class="path" aria-hidden="true"></div>
+      <a href="#vengeance" class="map-node n1"><span class="emoji" aria-hidden="true"><img src="assets/vengeance-pixel.png" alt=""></span><strong>VENGEANCE</strong></a>
+      <a href="#words" class="map-node n2"><span class="emoji" aria-hidden="true"><img src="assets/words-pixel.png" alt=""></span><strong>WORDS & SAND</strong></a>
+      <a href="#origins" class="map-node n3"><span class="emoji" aria-hidden="true"><img src="assets/origins-pixel.png" alt=""></span><strong>ORIGINS</strong></a>
+      <a href="#starnection" class="map-node n4"><span class="emoji" aria-hidden="true"><img src="assets/starnection-pixel.png" alt=""></span><strong>STARNECTION</strong></a>
+    </div>
+  </div>
+</section>
+<section id="games" aria-labelledby="games-title">
+ <div class="shell"><p class="topline pixel">CHAPTER 02 / PROJECT ARCHIVE</p><h2 id="games-title" class="section-title">DISCOVER THE WORLDS</h2><p class="intro">From narrative RPGs to relaxing mobile puzzles, every project is a new technical and creative challenge.</p>
+   <div class="worlds">
+     <article class="pixel-panel world" id="vengeance"><div class="world-top fire"><span class="mini-stars"></span><span class="world-symbol" role="img" aria-label="Pixel castle"><img src="assets/vengeance-pixel.png" alt=""></span></div><div class="world-body"><div class="world-meta">✓ RELEASED · FANTASY RPG</div><h3>VENGEANCE: THE NORIAN CHRONICLES</h3><p>A story-driven fantasy RPG and a long-running world of characters, magic, exploration, and mobile adventures. Built and refined across multiple releases.</p><div class="chips"><span>RPG Maker MV</span><span>Game Design</span><span>Mobile</span></div></div></article>
+     <article class="pixel-panel world" id="words"><div class="world-top sand"><span class="world-symbol" role="img" aria-label="Pixel hourglass"><img src="assets/words-pixel.png" alt=""></span></div><div class="world-body"><div class="world-meta">✓ ANDROID RELEASED · WORD PUZZLE</div><h3>WORDS AND SAND</h3><p>Falling sand meets letter puzzles in a relaxing mobile game with handcrafted challenges, generated levels, and tactile interactions.</p><div class="chips"><span>Flutter</span><span>Dart</span><span>Procedural Levels</span></div></div></article>
+     <article class="pixel-panel world" id="origins"><div class="world-top origins"><span class="world-symbol" role="img" aria-label="Pixel crossed swords"><img src="assets/origins-pixel.png" alt=""></span></div><div class="world-body"><div class="world-meta">⌛ COMING SOON · RETRO RPG</div><h3>VENGEANCE: ORIGINS</h3><p>A new retro-inspired RPG adventure in development. Expect classic atmosphere, handcrafted encounters, and a fresh take on battle systems.</p><div class="chips"><span>RPG Maker MV</span><span>Pixel Art</span><span>In Development</span></div></div></article>
+     <article class="pixel-panel world" id="starnection"><div class="world-top sky"><span class="mini-stars"></span><span class="world-symbol" role="img" aria-label="Pixel constellation"><img src="assets/starnection-pixel.png" alt=""></span></div><div class="world-body"><div class="world-meta">⌛ IN DEVELOPMENT · PUZZLE</div><h3>STARNECTION</h3><p>Connect the stars, trace constellations, and solve skybound path puzzles in a celestial-inspired puzzle adventure.</p><div class="chips"><span>Flutter</span><span>Puzzle Design</span><span>In Development</span></div></div></article>
+   </div>
+ </div>
+</section>
+<section id="profile" aria-labelledby="profile-title"><div class="shell"><p class="topline pixel">CHAPTER 03 / CHARACTER MENU</p><h2 id="profile-title" class="section-title">PLAYER PROFILE</h2><p class="intro">The adventurer behind the projects.</p>
+  <div class="profile-grid">
+    <div class="pixel-panel avatar-panel"><div class="avatar" role="img" aria-label="Stylized pixel-art developer avatar"><div class="shirt"></div><div class="face"></div><div class="hair"></div><div class="eyes"></div></div><span class="label">CLASS</span><strong style="color:var(--gold);font-size:25px;font-weight:normal">Developer</strong><span style="color:var(--jade);font-size:20px;margin-top:5px">★ Always leveling up</span></div>
+    <div class="pixel-panel profile-info"><span class="label">CHARACTER RECORD</span><h3>NIKOLAOS DOSCHORIS</h3><p>Full-stack developer with production experience delivering IoT applications, REST APIs, and responsive frontends. Currently developing cross-platform AI software at Innoscribe, while independently creating and releasing games.</p>
+    <div class="facts"><div class="fact"><small>LOCATION</small><strong>Oslo, Norway</strong></div><div class="fact"><small>FOCUS</small><strong>Full-stack & Game Development</strong></div><div class="fact"><small>EDUCATION</small><strong>University of Oslo</strong></div><div class="fact"><small>LANGUAGES</small><strong>English (fluent) · Norwegian (A2)</strong></div></div>
+    <div class="tech"><span class="label">EQUIPPED SKILLS</span><div><span>C# / .NET</span><span>ASP.NET Core</span><span>React</span><span>Blazor</span><span>Flutter / Dart</span><span>Azure</span><span>SQL Server</span><span>MongoDB</span><span>Docker / CI-CD</span><span>RPG Maker MV</span></div></div>
+    </div>
+  </div>
+ </div></section>
+<section id="experience" aria-labelledby="experience-title"><div class="shell"><p class="topline pixel">CHAPTER 04 / GUILD HISTORY</p><h2 id="experience-title" class="section-title">GUILD HISTORY</h2><p class="intro">Experience earned outside the game world. Real products, real teams, and real users.</p>
+  <div class="pixel-panel log">
+    <div class="quest"><div class="quest-icon" aria-hidden="true">✦</div><div><h3>APPLICATION DEVELOPER — INNOSCRIBE</h3><p class="date-line">AUG 2026 – PRESENT · INTERNSHIP · OSLO</p><p>Collaborating on a cross-platform AI application using Flutter, Dart, BLoC, Android Studio and Xcode, while working with modern development workflows and tools.</p><small>CURRENT QUEST</small></div></div>
+    <div class="quest"><div class="quest-icon" aria-hidden="true">◆</div><div><h3>FULL-STACK DEVELOPER — DETEC AS</h3><p class="date-line">AUG 2024 – FEB 2025 · OSLO</p><p>Delivered IoT application features with .NET MAUI, designed REST APIs in .NET Core, built responsive Blazor UI, and optimized SQL Server database queries and schemas. Collaborated in Agile product teams.</p><small>COMPLETED QUEST</small></div></div>
+    <div class="quest"><div class="quest-icon" aria-hidden="true">◇</div><div><h3>STORE MANAGER — OUZERI O GIANNIS</h3><p class="date-line">MAY 2021 – AUG 2022 · PART-TIME · GREECE</p><p>Managed daily operations and inventory alongside undergraduate studies, gaining practical ownership and operational experience.</p><small>COMPLETED QUEST</small></div></div>
+  </div>
+ </div></section>
+<section id="quests" aria-labelledby="quests-title"><div class="shell"><p class="topline pixel">CHAPTER 05 / ADVENTURE LOG</p><h2 id="quests-title" class="section-title">QUEST LOG</h2><p class="intro">Real milestones, disguised as fantasy quests.</p>
+  <div class="pixel-panel log">
+    <div class="quest"><div class="quest-icon" aria-hidden="true">01</div><div><h3>THE ARCHITECT'S PATH</h3><p>MSc in Programming and System Architecture, University of Oslo (2022–2024). Specialized in software architecture and distributed systems; thesis on code-navigation skills in lectures.</p><small>EDUCATION</small></div></div>
+    <div class="quest"><div class="quest-icon" aria-hidden="true">02</div><div><h3>THE FIRST SCROLL</h3><p>BSc in Information Technology at Deree (2015–2021). Foundations in programming, systems analysis and web development.</p><small>EDUCATION</small></div></div>
+    <div class="quest"><div class="quest-icon" aria-hidden="true">03</div><div><h3>WORLDS RELEASED</h3><p>Developing and shipping mobile games, including Vengeance: The Norian Chronicles and Words and Sand.</p><small>PROJECT MILESTONE</small></div></div>
+    <div class="quest"><div class="quest-icon" aria-hidden="true">04</div><div><h3>THE NEXT CHAPTER</h3><p>Continuing work on Vengeance: Origins, Starnection, and new software experiences.</p><small>ACTIVE QUEST</small></div></div>
+  </div>
+ </div></section>
+<section class="contact" id="contact" aria-labelledby="contact-title"><div class="shell"><p class="topline pixel">CHAPTER 06 / OPEN PARTY</p><h2 id="contact-title" class="section-title">LET'S BUILD SOMETHING</h2><div class="pixel-panel contact-panel"><span class="label">NEW QUEST AVAILABLE</span><p>Have a software role, a game collaboration, or an interesting idea? I'd love to hear from you.</p><div class="contact-links">
+      <a class="rpg-button" href="mailto:nick.doschoris@gmail.com">✉ EMAIL ME</a>
+      <a class="rpg-button secondary" href="https://www.linkedin.com/in/nikolaos-doschoris-264b58107/" target="_blank" rel="noopener noreferrer">↗ LINKEDIN</a>
+      <a class="rpg-button secondary" href="https://github.com/nickdosc" target="_blank" rel="noopener noreferrer">↗ GITHUB</a>
+      <a class="rpg-button secondary" href="Nikolaos_Doschoris_Public_CV.pdf" download>▤ DOWNLOAD CV</a>
+    </div><div class="contact-note">Project screenshots and verified app-store links will be added with the final game artwork. Telephone number omitted from this public portfolio.</div></div></div></section>
+</main>
+<footer><div class="shell">© <span id="year">2026</span> <span>NickDosc</span> · Crafted with code, coffee & a little magic. ✦</div></footer>
+<div class="toast" id="quest-toast" role="status" aria-live="polite">★ QUEST ACCEPTED: EXPLORE THE WORLD ★</div>
+<script>
+  (()=>{
+    const menu=document.querySelector('.menu-toggle');
+    const nav=document.querySelector('#site-nav');
+    menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'CLOSE −':'MENU +';});
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='MENU +';}));
+    const start=document.querySelector('#start-quest'),toast=document.querySelector('#quest-toast');
+    start.addEventListener('click',()=>{toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2500)});
+    document.querySelector('#year').textContent=new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
