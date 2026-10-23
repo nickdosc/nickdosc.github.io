@@ -11,6 +11,7 @@
   <meta property="og:url" content="https://nickdosc.dev/">
   <meta property="og:image" content="https://nickdosc.dev/assets/social-preview.png">
   <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:site_name" content="NickDosc" />
   <link rel="canonical" href="https://nickdosc.dev/">
   <title>NickDosc — Developer Quest</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,7 +60,7 @@
     .map-node{position:absolute;z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;transform:translate(-50%,-50%);transition:transform .15s;filter:drop-shadow(3px 4px 0 #101726)}.map-node:hover{transform:translate(-50%,-55%)}
     .map-node .thumb{width:88px;height:88px;border:5px solid #f5d791;box-shadow:4px 4px 0 #1b2638;background:#14223d;overflow:hidden}.map-node .thumb img{width:100%;height:100%;object-fit:cover}.map-node strong{background:rgba(10,16,28,.92);border:2px solid #d5d0a4;padding:6px 10px;font:9px/1.5 var(--pixel);white-space:nowrap}.n1{left:24%;top:25%}.n2{left:72%;top:22%}.n3{left:42%;top:77%}.n4{left:82%;top:75%}
 
-    .worlds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.world{overflow:hidden;transform:translateY(14px);opacity:0;transition:transform .6s ease,opacity .6s ease}.world.visible{transform:translateY(0);opacity:1}.world:hover{transform:translateY(-4px)}
+    .worlds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.world{overflow:hidden;transform:none;opacity:1;transition:transform .6s ease,opacity .6s ease}.world.visible{transform:translateY(0);opacity:1}.world:hover{transform:translateY(-4px)}
     .world-top{position:relative;height:245px;overflow:hidden;background:#111a30}.world-top img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease,filter .4s ease}.world:hover .world-top img{transform:scale(1.05)}.world-top::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(9,14,28,.18) 55%,rgba(9,14,28,.84) 100%)}
     .status{position:absolute;top:14px;left:14px;z-index:2;padding:7px 10px;background:rgba(10,18,31,.85);border:3px solid #f3d48a;font:9px/1.5 var(--pixel);color:var(--gold)}
     .art-glow{position:absolute;inset:auto 0 0 0;height:110px;background:radial-gradient(circle at center,rgba(248,207,119,.22),transparent 60%);pointer-events:none}
@@ -82,6 +83,79 @@
     @media (max-width:980px){.hero-grid,.profile-grid,.fun-grid{grid-template-columns:1fr}.worlds{grid-template-columns:1fr}.feature-art-wrap img{aspect-ratio:16/9}.facts{grid-template-columns:1fr 1fr}}
     @media (max-width:780px){.nav{display:none;position:absolute;left:0;right:0;top:78px;flex-direction:column;align-items:flex-start;padding:18px;background:#0f1830;border-bottom:4px solid #314866}.nav.open{display:flex}.menu-toggle{display:block}.map{height:560px}.map .path{left:22%;top:17%;width:62%;height:66%}.n1{left:25%;top:18%}.n2{left:70%;top:25%}.n3{left:34%;top:71%}.n4{left:78%;top:79%}.quest{grid-template-columns:1fr}.quest-icon{margin-bottom:8px}}
     @media (max-width:560px){body{font-size:22px}.shell{width:min(100% - 20px,1160px)}header .mark{font-size:10px}.actions,.contact-links,.store-links{gap:10px}.rpg-button{font-size:10px;padding:13px 14px}.dialog-text{font-size:24px;min-height:72px}.world-top{height:205px}.map-node .thumb{width:74px;height:74px}.map-node strong{font-size:8px;padding:5px 8px}.facts{grid-template-columns:1fr}.feature-caption{display:block}}
+
+/* === V3 / site polish, usability and opt-in map explorer === */
+.hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)}
+.hero-grid>div{min-width:0}
+.hero h1,h1{font-size:clamp(21px,2.95vw,38px);line-height:1.6;letter-spacing:0;overflow-wrap:normal;word-break:normal}
+.name-line{display:block;white-space:nowrap}
+.hero-role{margin:4px 0 22px;color:var(--mint);font-size:clamp(9px,1vw,12px);line-height:1.9}
+.hero-status{display:flex;gap:10px;flex-wrap:wrap;margin:17px 0 22px}
+.hero-status a{display:inline-flex;gap:8px;align-items:center;text-decoration:none;background:rgba(18,29,50,.9);border:2px solid #637a9c;padding:10px 11px;color:#ecf2fb;font:9px/1.6 var(--pixel)}
+.hero-status a:hover{border-color:var(--gold);color:var(--gold)}
+.status-light{height:9px;width:9px;background:var(--mint);box-shadow:0 0 0 3px rgba(114,212,177,.12)}
+.status-light.blue{background:var(--blue)}.status-light.purple{background:#d2a8ff}
+.dialog-next{font:9px/1.5 var(--pixel);color:var(--mint);border:0;border-bottom:2px dashed currentColor;background:transparent;margin-top:10px;padding:5px 0}
+.dialog-next:hover{color:var(--gold)}
+/* Hover no longer scales the bitmap under a moving transparency gradient. */
+.world,.world.visible{transform:none!important;transition:opacity .4s ease,border-color .2s ease!important;backface-visibility:visible}
+.world:hover{transform:none!important;border-color:#e7c67c}
+.world-top{isolation:isolate;contain:paint;backface-visibility:hidden}
+.world-top img,.world:hover .world-top img{transform:none!important;filter:none!important;transition:none!important;object-position:center center}
+.world-top::after{pointer-events:none;transition:none;z-index:1}
+.world-top .status,.world-top .art-glow{z-index:2}
+#words .world-top img{object-position:center 52%}
+#origins .world-top img{object-position:center 38%}
+/* Words and Sand now uses the gold hourglass art; Origins uses the red warrior art. */
+.portrait-frame{position:relative;width:min(100%,280px);height:320px;overflow:hidden;border:5px solid #e7c27b;background:#000;box-shadow:5px 5px 0 #0a1020,0 0 34px rgba(242,174,92,.10);margin-bottom:24px}
+.portrait-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center 39%;filter:none}
+.portrait-frame::after{content:'';pointer-events:none;position:absolute;inset:0;box-shadow:inset 0 0 0 6px rgba(9,15,31,.28),inset 0 -30px 40px rgba(9,15,31,.24)}
+.portrait-corner{position:absolute;z-index:2;width:16px;height:16px;background:#f9cf77;border:3px solid #2e3b5a}
+.portrait-corner.tl{top:0;left:0}.portrait-corner.tr{top:0;right:0}.portrait-corner.bl{bottom:0;left:0}.portrait-corner.br{bottom:0;right:0}
+.map-tools{display:flex;align-items:center;flex-wrap:wrap;justify-content:center;gap:14px;margin-bottom:23px}
+.map-tools .rpg-button{font-size:9px;padding:12px 13px}
+.map-hint{font-size:22px;color:var(--soft)}
+.map{outline-offset:6px}
+.map.explorer-on:focus-visible{outline:4px dashed var(--gold)}
+.map.explorer-on{cursor:crosshair}
+.map-node{z-index:5}
+.map-npc{position:absolute;z-index:6;display:flex;align-items:center;flex-direction:column;gap:3px;transform:translate(-50%,-50%);background:none;border:0;padding:3px;color:#fff7d2;filter:drop-shadow(3px 3px 0 rgba(0,0,0,.6))}
+.map-npc:hover,.map-npc:focus-visible{filter:drop-shadow(0 0 7px #ffe8a0)}
+.map-npc span{font-size:36px;line-height:1.1;animation:npc-bob 2.5s ease-in-out infinite}
+.map-npc small{padding:4px 5px;background:#121e34;border:2px solid #e9ce8d;font:7px/1.4 var(--pixel);white-space:nowrap}
+.npc-archivist{left:51%;top:44%}.npc-keeper{left:78%;top:52%}
+@keyframes npc-bob{50%{transform:translateY(-3px)}}
+.walker{display:none;position:absolute;z-index:8;left:52%;top:80%;width:36px;height:50px;transform:translate(-50%,-50%);pointer-events:none;filter:drop-shadow(3px 5px 0 #112232)}
+.explorer-on .walker{display:block}
+.walker-head,.walker-body,.walker-feet{display:block;position:absolute;image-rendering:pixelated}
+.walker-head{left:7px;top:1px;width:23px;height:23px;background:#f3bb8d;border:4px solid #4a3026;box-shadow:inset 0 7px #a45b34}
+.walker-body{left:5px;top:24px;width:27px;height:17px;background:#407fc0;border:4px solid #263e70}
+.walker-feet{left:7px;top:40px;width:9px;height:7px;background:#372e45;box-shadow:16px 0 #372e45}
+.walker.walk-step{animation:walker-step .17s steps(2,end) 2}
+@keyframes walker-step{50%{margin-top:-4px}}
+.explorer-controls{padding:15px 0;text-align:center}.explorer-controls[hidden]{display:none}
+.controls-tip{color:var(--soft);margin:0 auto 12px;max-width:650px;font-size:21px}
+.controller{display:flex;flex-direction:column;gap:6px;align-items:center;margin:12px auto}
+.controller-row{display:flex;justify-content:center;gap:6px}
+.controller button,.map-refocus{min-width:52px;min-height:50px;background:#20345a;border:3px solid #7597c4;color:#fff6d3;box-shadow:3px 3px 0 #070b15;padding:7px 12px;touch-action:manipulation}
+.controller button:hover,.controller button:focus-visible,.map-refocus:hover{background:#385588}
+.controller [data-interact]{font:10px/1.4 var(--pixel);min-width:104px;background:#6a4c5b;border-color:#d8a1ad}
+.map-refocus{font:9px/1.5 var(--pixel);margin:4px auto 0}
+.map-dialogue{margin-top:20px;padding:18px 22px}
+.map-dialogue p{font-size:25px;line-height:1.25;color:#e5edf6;margin:7px 0 2px}
+.dialog-speaker{color:var(--gold);font-size:10px;line-height:1.8}
+.nearby-indicator{display:block;color:var(--mint);font-size:20px;margin-top:8px}
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr}.hero h1,h1{font-size:clamp(22px,4.7vw,39px)}.hero-side{max-width:750px}.profile-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.hero{padding:45px 0 30px}.hero h1,h1{font-size:clamp(16px,5.6vw,27px);line-height:1.7}.hero-role{font-size:9px;line-height:1.7}.hero-status a{font-size:8px}.feature-art{padding:9px}.map{height:580px}.map-node .thumb{width:67px;height:67px}.map-node strong{font-size:7px}.n1{left:26%;top:17%}.n2{left:75%;top:26%}.n3{left:27%;top:76%}.n4{left:77%;top:83%}.npc-archivist{left:46%;top:43%}.npc-keeper{left:82%;top:53%}.map-npc span{font-size:31px}.map-npc small{font-size:6px}.portrait-frame{height:300px;width:255px}.map-tools{align-items:stretch;text-align:center}.map-tools button{width:100%}.map-dialogue p{font-size:22px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.floating-bg,.feature-art-wrap img,.sprite,.map-npc span,.walker.walk-step{animation:none!important}.world{transition:none!important}.toast{transition:none}.world:hover{transform:none!important}.dialog-next{transition:none}}
+.quest-generator{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:14px 0 0}
+.quest-parchment{width:100%;background:#101c36;border:3px solid #7284a6;padding:15px;min-height:100px}
+.quest-parchment .pixel{color:var(--gold);font-size:9px;line-height:1.7}
+.quest-parchment p{margin:7px 0 0;font-size:25px}
+.quest-generator .rpg-button{font-size:9px;padding:12px 12px}
+.quest-note{color:#b4c5d7!important;font-size:20px!important;margin-top:17px}
+@media print{header,.map-tools,.explorer-controls,.floating-bg,.dialog-next,.sprite-row{display:none!important}.world{opacity:1!important}.hero{padding:20px 0}}
+
   </style>
 </head>
 <body>
@@ -105,7 +179,7 @@
   <div class="shell hero-grid">
     <div>
       <p class="eyebrow pixel">PLAYER ONE / SOFTWARE DEVELOPER · GAME CREATOR · OSLO</p>
-      <h1>NIKOLAOS DOSCHORIS<span class="gold">FULL-STACK DEVELOPER PORTFOLIO</span></h1>
+      <h1><span class="name-line">NIKOLAOS</span><span class="name-line gold">DOSCHORIS</span></h1><p class="hero-role pixel">FULL-STACK DEVELOPER · INDIE GAME CREATOR</p>
       <p class="sub">A fun <em>pixel-art RPG-style</em> portfolio showcasing real software experience, released games, and the worlds I’m building next.</p>
       <div class="actions">
         <a class="rpg-button" href="#world-map" id="start-quest">▶ START QUEST</a>
@@ -113,16 +187,21 @@
         <a class="rpg-button secondary" href="#contact">✉ CONTACT</a>
       </div>
       <p class="hero-foot">Featuring <strong>Vengeance: The Norian Chronicles</strong>, <strong>Words and Sand</strong>, <strong>Vengeance: Origins</strong>, and <strong>Starnection</strong>.</p>
+      <div class="hero-status" aria-label="Portfolio quick links">
+        <a href="#games"><span class="status-light"></span> 2 RELEASED GAMES</a>
+        <a href="#experience"><span class="status-light blue"></span> PROFESSIONAL EXPERIENCE</a>
+        <a href="#quests"><span class="status-light purple"></span> QUEST LOG</a>
+      </div>
       <div class="dialog-box pixel-panel">
         <span class="dialog-label">NPC DIALOGUE</span>
         <div class="dialog-text" id="dialog-text">Welcome, traveler. Explore my worlds, guild history, and latest quests.</div>
+        <button type="button" class="dialog-next" id="dialog-next">NEXT DIALOGUE ▸</button>
       </div>
-      <div class="ticker"><div class="ticker-track"><span>NOW PLAYABLE</span> VENGEANCE ON IOS & ANDROID <span>NEW</span> WORDS AND SAND ON GOOGLE PLAY <span>COMING SOON</span> VENGEANCE: ORIGINS <span>IN DEVELOPMENT</span> STARNECTION <span>OPEN TO OPPORTUNITIES</span> FULL-STACK / FLUTTER / .NET / BLAZOR · <span>NOW PLAYABLE</span> VENGEANCE ON IOS & ANDROID <span>NEW</span> WORDS AND SAND ON GOOGLE PLAY <span>COMING SOON</span> VENGEANCE: ORIGINS <span>IN DEVELOPMENT</span> STARNECTION</div></div>
-    </div>
+</div>
     <div class="hero-side">
       <div class="pixel-panel feature-art">
         <div class="feature-art-wrap">
-          <img src="assets/vengeance-art.png" alt="Vengeance: The Norian Chronicles key artwork showing the protagonist in a snowy scene with fire magic.">
+          <img src="assets/vengeance-art.webp" fetchpriority="high" alt="Vengeance: The Norian Chronicles key artwork showing the protagonist in a snowy scene with fire magic.">
         </div>
         <div class="feature-caption"><strong>Featured World: Vengeance</strong><span>Released on App Store & Google Play</span></div>
       </div>
@@ -136,13 +215,34 @@
     <p class="topline pixel">CHAPTER 01 / WORLD MAP</p>
     <h2 class="section-title" id="map-title">SELECT A DESTINATION</h2>
     <p class="intro">Jump between game worlds, developer stats, and real-world experience like a proper RPG adventure.</p>
-    <div class="map pixel-panel">
+    <div class="map-tools">
+      <button type="button" class="rpg-button secondary" id="explorer-toggle" aria-controls="explorer-controls" aria-pressed="false">🎮 ENABLE EXPLORER MODE</button>
+      <span class="map-hint">Optional adventure. Map links work without playing.</span>
+    </div>
+    <div class="map pixel-panel" id="explorer-map" tabindex="-1" role="region" aria-label="Interactive game world map. Enable Explorer Mode for keyboard or touch movement.">
       <div class="river"></div>
       <div class="path"></div>
-      <a href="#vengeance" class="map-node n1"><span class="thumb"><img src="assets/vengeance-art.png" alt=""></span><strong>VENGEANCE</strong></a>
-      <a href="#words" class="map-node n2"><span class="thumb"><img src="assets/words-art.png" alt=""></span><strong>WORDS & SAND</strong></a>
-      <a href="#origins" class="map-node n3"><span class="thumb"><img src="assets/origins-art.png" alt=""></span><strong>ORIGINS</strong></a>
+      <button type="button" class="map-npc npc-archivist" data-npc="archivist" aria-label="Talk to the Archivist"><span aria-hidden="true">🧙</span><small>ARCHIVIST</small></button>
+      <button type="button" class="map-npc npc-keeper" data-npc="keeper" aria-label="Talk to the Tavern Keeper"><span aria-hidden="true">🧑‍🍳</span><small>TAVERN</small></button>
+      <div class="walker" id="walker" aria-hidden="true"><span class="walker-head"></span><span class="walker-body"></span><span class="walker-feet"></span></div>
+      <a href="#vengeance" class="map-node n1"><span class="thumb"><img src="assets/vengeance-art.webp" alt=""></span><strong>VENGEANCE</strong></a>
+      <a href="#words" class="map-node n2"><span class="thumb"><img src="assets/words-art.webp" alt=""></span><strong>WORDS & SAND</strong></a>
+      <a href="#origins" class="map-node n3"><span class="thumb"><img src="assets/origins-art.webp" alt=""></span><strong>ORIGINS</strong></a>
       <a href="#starnection" class="map-node n4"><span class="thumb"><img src="assets/starnection-pixel.png" alt=""></span><strong>STARNECTION</strong></a>
+    </div>
+    <div id="explorer-controls" class="explorer-controls" hidden>
+      <p class="controls-tip" id="explorer-tip">Move with arrow keys or WASD while the map is focused, or use the buttons below. Press E to interact. Your normal navigation stays available.</p>
+      <div class="controller" aria-label="Touch movement controls">
+        <button type="button" data-move="up" aria-label="Move up">▲</button>
+        <div class="controller-row"><button type="button" data-move="left" aria-label="Move left">◀</button><button type="button" data-interact aria-label="Talk or interact">TALK / E</button><button type="button" data-move="right" aria-label="Move right">▶</button></div>
+        <button type="button" data-move="down" aria-label="Move down">▼</button>
+      </div>
+      <button type="button" class="map-refocus" id="map-refocus">FOCUS MAP FOR KEYBOARD</button>
+    </div>
+    <div class="map-dialogue pixel-panel" aria-live="polite" aria-atomic="true">
+      <div class="dialog-speaker pixel" id="map-speaker">WORLD GUIDE</div>
+      <p id="map-message">Choose any destination, or speak with the Archivist and Tavern Keeper. Explorer Mode is entirely optional.</p>
+      <span class="nearby-indicator" id="nearby-indicator"></span>
     </div>
   </div>
 </section>
@@ -156,7 +256,7 @@
       <article class="pixel-panel world reveal" id="vengeance">
         <div class="world-top">
           <span class="status">✓ RELEASED</span>
-          <img src="assets/vengeance-art.png" alt="Vengeance: The Norian Chronicles official artwork.">
+          <img src="assets/vengeance-art.webp" loading="lazy" alt="Vengeance: The Norian Chronicles official artwork.">
           <span class="art-glow"></span>
         </div>
         <div class="world-body">
@@ -174,7 +274,7 @@
       <article class="pixel-panel world reveal" id="words">
         <div class="world-top">
           <span class="status">✓ GOOGLE PLAY RELEASED</span>
-          <img src="assets/words-art.png" alt="Words and Sand key artwork with a golden hourglass and desert theme.">
+          <img src="assets/words-art.webp" loading="lazy" alt="Words and Sand key artwork with a golden hourglass and desert theme.">
           <span class="art-glow"></span>
         </div>
         <div class="world-body">
@@ -192,7 +292,7 @@
       <article class="pixel-panel world reveal" id="origins">
         <div class="world-top">
           <span class="status">⌛ COMING SOON</span>
-          <img src="assets/origins-art.png" alt="Vengeance: Origins artwork showing a red-haired warrior in armor.">
+          <img src="assets/origins-art.webp" loading="lazy" alt="Vengeance: Origins artwork showing a red-haired warrior in armor.">
           <span class="art-glow"></span>
         </div>
         <div class="world-body">
@@ -234,7 +334,7 @@
     <p class="intro">The developer behind the code, the systems, and the worlds.</p>
     <div class="profile-grid">
       <div class="pixel-panel avatar-panel">
-        <div class="avatar" role="img" aria-label="Pixel-art styled avatar representing Nikolaos Doschoris"><div class="shirt"></div><div class="face"></div><div class="hair"></div><div class="eyes"></div></div>
+        <div class="portrait-frame"><img src="assets/profile-photo.webp" width="654" height="1020" loading="lazy" alt="Portrait photograph of Nikolaos Doschoris" class="portrait-photo"><span class="portrait-corner tl" aria-hidden="true"></span><span class="portrait-corner tr" aria-hidden="true"></span><span class="portrait-corner bl" aria-hidden="true"></span><span class="portrait-corner br" aria-hidden="true"></span></div>
         <span class="label">CLASS</span>
         <strong style="font-size:26px;color:var(--gold);font-weight:normal">FULL-STACK DEVELOPER</strong>
         <span style="font-size:21px;color:var(--mint);margin-top:6px">★ Secondary class: Game Developer</span>
@@ -290,9 +390,14 @@
     <p class="intro">If you have a software role, collaboration idea, or just want to talk games and product development, I’d love to hear from you.</p>
     <div class="fun-grid">
       <div class="pixel-panel mini-game">
-        <span class="label">FUN EXTRAS</span>
-        <p>This portfolio now includes animated banners, floating particles, a scrolling quest ticker, bounce sprites, and reveal-on-scroll cards — with even more room for future RPG interactions.</p>
-        <p>Next upgrades could include a walking overworld character, soundtrack toggle, NPC popups, and game-specific micro-interactions.</p>
+        <span class="label">SIDE QUEST BOARD</span>
+        <p>Looking for an adventure? Pick a side quest and I'll point you toward a project, a story, or the guild hall.</p>
+        <div class="quest-generator">
+          <div class="quest-parchment" aria-live="polite"><span class="pixel">QUEST AVAILABLE</span><p id="sidequest-text">Explore the world map and choose your first destination.</p></div>
+          <button type="button" id="roll-quest" class="rpg-button secondary">✦ DRAW A SIDE QUEST</button>
+          <a id="sidequest-link" class="rpg-button" href="#world-map">OPEN QUEST ➜</a>
+        </div>
+        <p class="quest-note">Just browsing? Skip this entirely—every section is accessible through the main menu.</p>
       </div>
       <div class="pixel-panel contact-panel">
         <span class="label">OPEN PARTY SLOT</span>
@@ -317,47 +422,159 @@
 <div class="toast" id="quest-toast" role="status" aria-live="polite">★ QUEST ACCEPTED: EXPLORE THE WORLD ★</div>
 <script>
 (() => {
+  'use strict';
   const menu = document.querySelector('.menu-toggle');
-  const nav = document.querySelector('#site-nav');
+  const nav = document.getElementById('site-nav');
   menu?.addEventListener('click', () => {
     const open = nav.classList.toggle('open');
     menu.setAttribute('aria-expanded', String(open));
     menu.textContent = open ? 'CLOSE −' : 'MENU +';
   });
-  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
     nav.classList.remove('open');
     menu?.setAttribute('aria-expanded', 'false');
     if (menu) menu.textContent = 'MENU +';
   }));
 
-  const start = document.querySelector('#start-quest');
-  const toast = document.querySelector('#quest-toast');
-  start?.addEventListener('click', () => {
+  const toast = document.getElementById('quest-toast');
+  let toastTimer;
+  function showToast(message) {
+    if (!toast) return;
+    toast.textContent = message;
     toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2400);
-  });
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
+  }
+  document.getElementById('start-quest')?.addEventListener('click', () => showToast('★ QUEST ACCEPTED: EXPLORE THE WORLD ★'));
+  document.getElementById('year').textContent = new Date().getFullYear();
 
+  // Dialogue advances on demand; nothing auto-scrolls or changes while reading.
   const lines = [
     'Welcome, traveler. Explore my worlds, guild history, and latest quests.',
-    'Tip: the game worlds below now use real artwork from my released and upcoming projects.',
-    'Main quest: build thoughtful software and memorable interactive experiences.',
-    'Bonus quest: try Vengeance on mobile and Words and Sand on Google Play.'
+    'My inventory includes .NET, Blazor, React, Azure, Flutter, Dart and a fair amount of game design.',
+    'Two worlds have been released: Vengeance and Words and Sand. Two more are taking shape.',
+    'Not here to play? The menu, project links and CV download all work directly.'
   ];
-  const dialog = document.querySelector('#dialog-text');
-  let i = 0;
-  setInterval(() => {
-    i = (i + 1) % lines.length;
-    if (dialog) dialog.textContent = lines[i];
-  }, 3400);
+  let line = 0;
+  const heroDialog = document.getElementById('dialog-text');
+  document.getElementById('dialog-next')?.addEventListener('click', () => {
+    line = (line + 1) % lines.length;
+    heroDialog.textContent = lines[line];
+  });
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.18 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, {threshold: 0.07});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  } else {
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+  }
 
-  document.querySelector('#year').textContent = new Date().getFullYear();
+  // Small optional tavern quest board; standard direct links remain accessible.
+  const sideQuests = [
+    {text:'Investigate a fantasy RPG with fire magic and icy kingdoms.', href:'#vengeance'},
+    {text:'Seek the hourglass and discover a relaxing word-puzzle world.', href:'#words'},
+    {text:'Open the sealed preview of Vengeance: Origins.', href:'#origins'},
+    {text:'Trace a constellation in the upcoming Starnection project.', href:'#starnection'},
+    {text:"Study the developer's skill tree and character record.", href:'#profile'},
+    {text:'Find the guild history and browse real professional experience.', href:'#experience'},
+    {text:'Visit the tavern and send a message to the developer.', href:'#contact'}
+  ];
+  let lastQuest = -1;
+  document.getElementById('roll-quest')?.addEventListener('click',()=>{
+    let choice = Math.floor(Math.random()*sideQuests.length);
+    if (choice === lastQuest) choice = (choice+1)%sideQuests.length;
+    lastQuest = choice;
+    document.getElementById('sidequest-text').textContent=sideQuests[choice].text;
+    document.getElementById('sidequest-link').setAttribute('href',sideQuests[choice].href);
+    showToast('✦ NEW SIDE QUEST DISCOVERED ✦');
+  });
+
+  // The map is fully clickable without enabling explorer mode.
+  const map = document.getElementById('explorer-map');
+  const toggle = document.getElementById('explorer-toggle');
+  const controls = document.getElementById('explorer-controls');
+  const walker = document.getElementById('walker');
+  const tip = document.getElementById('explorer-tip');
+  const speaker = document.getElementById('map-speaker');
+  const message = document.getElementById('map-message');
+  const nearbyHint = document.getElementById('nearby-indicator');
+  const pos = {x:52, y:80};
+  let enabled = false;
+  const spots = [
+    {x:24,y:25,id:'vengeance',name:'Vengeance',desc:'Fire, snow and fantasy. The Norian Chronicles is out on iOS and Android.'},
+    {x:72,y:22,id:'words',name:'Words and Sand',desc:'A calm word puzzle with falling sand. Available on Google Play.'},
+    {x:42,y:77,id:'origins',name:'Vengeance: Origins',desc:'A new retro RPG is being forged. See the upcoming project preview.'},
+    {x:82,y:75,id:'starnection',name:'Starnection',desc:'Connect the stars in a celestial puzzle world, currently in development.'},
+    {x:51,y:44,id:'archivist',name:'Archivist',desc:'Your character record awaits. Nikolaos builds full-stack applications and indie games.'},
+    {x:78,y:52,id:'keeper',name:'Tavern Keeper',desc:'Need an adventuring party? You can find email, LinkedIn and GitHub in the contact tavern.'}
+  ];
+  const say = (who, words) => {speaker.textContent = who.toUpperCase();message.textContent = words;};
+  function nearest() {
+    const rect = map.getBoundingClientRect();
+    return spots.map(s => ({...s,distance:Math.hypot((s.x-pos.x)*rect.width/100,(s.y-pos.y)*rect.height/100)})).sort((a,b)=>a.distance-b.distance)[0];
+  }
+  function renderPosition() {
+    walker.style.left = pos.x+'%';
+    walker.style.top = pos.y+'%';
+    const s = nearest();
+    nearbyHint.textContent = s?.distance < 94 ? `Nearby: ${s.name} — press E or TALK to interact.` : 'Explore the map, or use the normal links to jump directly.';
+  }
+  function move(dx,dy) {
+    if(!enabled) return;
+    pos.x = Math.min(93,Math.max(7,pos.x+dx));
+    pos.y = Math.min(93,Math.max(7,pos.y+dy));
+    walker.classList.remove('walk-step');
+    void walker.offsetWidth;
+    walker.classList.add('walk-step');
+    renderPosition();
+  }
+  function interact() {
+    if(!enabled) return;
+    const s = nearest();
+    if(!s || s.distance >= 94) {say('World Guide','Nothing nearby yet. Explore the paths or choose any region directly.');return;}
+    say(s.name,s.desc+(s.id==='archivist'||s.id==='keeper'?'':' Use the destination icon to view this project.'));
+    showToast('✦ YOU DISCOVERED: '+s.name.toUpperCase()+' ✦');
+  }
+  toggle?.addEventListener('click',()=>{
+    enabled = !enabled;
+    map.classList.toggle('explorer-on',enabled);
+    controls.hidden = !enabled;
+    toggle.setAttribute('aria-pressed',String(enabled));
+    toggle.textContent = enabled ? '✕ LEAVE EXPLORER MODE' : '🎮 ENABLE EXPLORER MODE';
+    if(enabled){
+      say('World Guide','Explorer Mode enabled! Walk around with WASD or arrows when the map is focused; press E to interact. Mobile controls are below.');
+      renderPosition();
+      map.focus({preventScroll:true});
+    }else{
+      say('World Guide','Explorer Mode closed. Project locations and the top navigation remain available to everyone.');
+      nearbyHint.textContent='';
+      toggle.focus({preventScroll:true});
+    }
+  });
+  map?.addEventListener('keydown',e=>{
+    if(!enabled || e.target !== map) return;
+    const keys={ArrowUp:[0,-3],w:[0,-3],W:[0,-3],ArrowDown:[0,3],s:[0,3],S:[0,3],ArrowLeft:[-3,0],a:[-3,0],A:[-3,0],ArrowRight:[3,0],d:[3,0],D:[3,0]};
+    if(keys[e.key]){e.preventDefault();move(...keys[e.key]);}
+    else if(e.key==='e'||e.key==='E'){e.preventDefault();interact();}
+  });
+  document.querySelectorAll('[data-move]').forEach(b=>b.addEventListener('click',()=>{
+    const direction={up:[0,-3],down:[0,3],left:[-3,0],right:[3,0]};
+    move(...direction[b.dataset.move]);
+  }));
+  document.querySelector('[data-interact]')?.addEventListener('click',interact);
+  document.getElementById('map-refocus')?.addEventListener('click',()=>map.focus({preventScroll:true}));
+  document.querySelectorAll('[data-npc]').forEach(b=>b.addEventListener('click',()=>{
+    const npc=spots.find(s=>s.id===b.dataset.npc);
+    say(npc.name,npc.desc);
+    showToast('✦ '+npc.name.toUpperCase()+' SAYS HELLO ✦');
+  }));
 })();
 </script>
 </body>
